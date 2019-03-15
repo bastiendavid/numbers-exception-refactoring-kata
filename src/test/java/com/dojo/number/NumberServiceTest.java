@@ -1,13 +1,13 @@
 package com.dojo.number;
 
 import org.assertj.core.api.Assertions;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 
-public class NumberServiceTest {
+class NumberServiceTest {
 
     @Test
-    public void test() {
+    void test() {
         // For next sprint
         Assertions.assertThat(true).isTrue();
     }
