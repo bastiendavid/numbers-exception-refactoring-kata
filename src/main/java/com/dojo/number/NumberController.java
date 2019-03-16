@@ -1,7 +1,7 @@
 package com.dojo.number;
 
 import com.dojo.number.exception.BadLuckException;
-import com.dojo.number.exception.PairException;
+import com.dojo.number.exception.OddException;
 import com.dojo.number.exception.TheDevilException;
 import com.dojo.number.exception.TooLowException;
 
@@ -28,7 +28,7 @@ public class NumberController {
         } catch (TooLowException e) {
             logger.log("Too low: " + e.getMessage());
             e.printStackTrace();
-        } catch (PairException e) {
+        } catch (OddException e) {
             logger.log("Weid case: " + e.getMessage());
             e.printStackTrace();
         } catch (RuntimeException e) {
