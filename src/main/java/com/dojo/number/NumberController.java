@@ -21,19 +21,14 @@ public class NumberController {
             result = numberService.doTheMagic(number);
         } catch (TheDevilException e) {
             logger.log("The devil's message: " + e.getMessage());
-            e.printStackTrace();
         } catch (BadLuckException e) {
             logger.log("Bad luck message: " + e.getMessage());
-            e.printStackTrace();
         } catch (TooLowException e) {
             logger.log("Too low: " + e.getMessage());
-            e.printStackTrace();
         } catch (OddException e) {
             logger.log("Weird case: " + e.getMessage());
-            e.printStackTrace();
         } catch (RuntimeException e) {
             logger.log("Just in case: " + e.getMessage());
-            e.printStackTrace();
         } finally {
             numberService.close();
         }
