@@ -29,7 +29,7 @@ public class NumberController {
             logger.log("Too low: " + e.getMessage());
             e.printStackTrace();
         } catch (OddException e) {
-            logger.log("Weid case: " + e.getMessage());
+            logger.log("Weird case: " + e.getMessage());
             e.printStackTrace();
         } catch (RuntimeException e) {
             logger.log("Just in case: " + e.getMessage());
