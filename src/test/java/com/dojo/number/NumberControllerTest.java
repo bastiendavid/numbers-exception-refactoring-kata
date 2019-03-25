@@ -55,11 +55,12 @@ class NumberControllerTest {
         when(numberService.doTheMagic(inputNumber)).thenThrow(exception);
 
         // When
-        numberController.doTheMagic(inputNumber);
+        int result = numberController.doTheMagic(inputNumber);
 
         // Then
         verify(logger).log(expectedLoggedMessage);
         verify(numberService).close();
+        assertThat(result).isEqualTo(-1);
     }
 
     static Stream<Arguments> exceptionsAndExpectedLogs() {
