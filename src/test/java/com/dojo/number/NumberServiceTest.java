@@ -22,22 +22,23 @@ class NumberServiceTest {
     @Test
     void throws_a_devil_exception_for_666() {
         assertThatExceptionOfType(TheDevilException.class)
-                .isThrownBy(() -> numberService.doTheMagic(666));
+                .isThrownBy(() -> numberService.doTheMagic(666))
+                .withMessage("The devil exception");
     }
 
     @Test
     void throws_a_bad_luck_exception_for_13() {
         assertThatExceptionOfType(BadLuckException.class)
-                .isThrownBy(() -> numberService.doTheMagic(13));
-
+                .isThrownBy(() -> numberService.doTheMagic(13))
+                .withMessage("That's not my lucky number");
     }
 
     @ParameterizedTest
     @MethodSource("numbersBetween10And20Except13")
     void throws_a_too_low_exception_for_numbers_between_10_and_20_except_13(int number) {
         assertThatExceptionOfType(TooLowException.class)
-                .isThrownBy(() -> numberService.doTheMagic(number));
-
+                .isThrownBy(() -> numberService.doTheMagic(number))
+                .withMessage("You can do better");
     }
 
     static IntStream numbersBetween10And20Except13() {
@@ -59,7 +60,8 @@ class NumberServiceTest {
     @MethodSource("oddNumbersBetween100And200")
     void throws_an_odd_exception_for_odd_numbers_between_100_and_200(int number) {
         assertThatExceptionOfType(OddException.class)
-                .isThrownBy(() -> numberService.doTheMagic(number));
+                .isThrownBy(() -> numberService.doTheMagic(number))
+                .withMessage("Hmm... no");
     }
 
     static IntStream oddNumbersBetween100And200() {
@@ -70,7 +72,8 @@ class NumberServiceTest {
     @ValueSource(ints = {-1, -2, -100, -21321})
     void throws_a_runtime_exception_for_negative_numbers(int number) {
         assertThatExceptionOfType(RuntimeException.class)
-                .isThrownBy(() -> numberService.doTheMagic(number));
+                .isThrownBy(() -> numberService.doTheMagic(number))
+                .withMessage("Should not happen");
     }
 
     @ParameterizedTest
